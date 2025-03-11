@@ -1,0 +1,27 @@
+# Coding Challenge: Strangler Approach & Refactoring
+
+## Problem Statement
+You are working on migrating a legacy monolith application to microservices using the Strangler Approach. The existing monolith has a method that calculates energy costs, and it needs to be refactored into a new microservice.
+
+## Task
+- Refactor the code to follow the Open/Closed Principle by eliminating the hardcoded region checks.
+- Design a microservice (just the class structure) that can support future regional rate updates without modifying existing logic.
+- Write a simple integration test for your new microservice.
+
+```
+public class EnergyCostCalculator {
+    public double calculateCost(double consumption, String region) {
+        double rate;
+        if (region.equals("US")) {
+            rate = 0.12;
+        } else if (region.equals("EU")) {
+            rate = 0.15;
+        } else if (region.equals("APAC")) {
+            rate = 0.10;
+        } else {
+            rate = 0.20; // Default rate
+        }
+        return consumption * rate;
+    }
+}
+```
